@@ -1,5 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { LocationMarker } from './LocationMarker'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { LocationMarker } from './LocationMarker';
 
 export const Map = () => {
     return (

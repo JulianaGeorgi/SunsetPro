@@ -8,6 +8,7 @@ export const sunsetServices = () => {
             const json = await response.json();
 
             // Extract sunset time from the API response
+            console.log(json.results)
             const sunsetTime = json.results && json.results.sunset;
 
             if (typeof sunsetTime === 'string') {
