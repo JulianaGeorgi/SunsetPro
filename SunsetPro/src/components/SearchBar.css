@@ -1,0 +1,19 @@
+/* button.reset {
+    font: 18px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+    line-height: 30px;
+    color: #000;
+    font-weight: 700;
+    position: absolute;
+    line-height: 26px;
+    padding: 0 15px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    border-radius: 0 4px 4px 0;
+} */
+
+input[type=text]:focus {
+    box-shadow: none;
+}
