@@ -1,6 +1,7 @@
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
+import "leaflet-geosearch/dist/geosearch.css";
 import "./SearchBar.css";
 
 export const SearchField = () => {
@@ -15,8 +16,6 @@ export const SearchField = () => {
     showMarker: false,
     style: "bar",
   });
-
-  console.log(searchControl)
 
   const map = useMap();
   useEffect(():any => {

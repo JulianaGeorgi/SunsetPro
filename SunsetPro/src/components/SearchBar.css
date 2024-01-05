@@ -1,4 +1,4 @@
-button.reset {
+/* button.reset {
     font: 18px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
     line-height: 30px;
     color: #000;
@@ -12,7 +12,7 @@ button.reset {
     border: none;
     text-decoration: none;
     border-radius: 0 4px 4px 0;
-}
+} */
 
 input[type=text]:focus {
     box-shadow: none;
