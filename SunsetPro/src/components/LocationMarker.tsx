@@ -3,6 +3,7 @@ import { Marker, Popup } from "react-leaflet";
 import { sunsetServices } from "../services/sunsetServices";
 import { extractedData } from "../utils/utils";
 import { Icon } from "leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 export const LocationMarker = () => {
     // const [position, setPosition] = useState<{ lat: number; lng: number } | null>(null);
@@ -15,21 +16,22 @@ export const LocationMarker = () => {
     });
 
     return (
-        <>
+        <MarkerClusterGroup chunkedLoading>
             {extractedData.map((marker, index) => (
-                <Marker key={index} position={{ lat: Number(marker.lat), lng: Number(marker.lng) }} icon={customIcon}
+                <Marker
+                    key={index}
+                    position={{ lat: Number(marker.lat), lng: Number(marker.lng) }}
+                    icon={customIcon}
                     eventHandlers={{
                         click: (e) => {
-                            console.log('marker clicked', e)
                             getSunsetTime(e.latlng.lat, e.latlng.lng).then((sunsetTime) => {
                                 setSunsetTime(sunsetTime);
-                                console.log(sunsetTime);
                             });
                         },
                     }}>
                     <Popup>Sunset today at: {sunsetTime}</Popup>
                 </Marker>
             ))}
-        </>
+        </MarkerClusterGroup>
     );
 };

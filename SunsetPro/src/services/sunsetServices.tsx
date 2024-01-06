@@ -4,8 +4,8 @@ export const sunsetServices = () => {
 
     const getSunsetTime = async (lat:number, lng:number): Promise<string> => {
         try {
-            // const response = await fetch(`${api}lat=${lat}&lng=${lng}=today`);
-            const response = await fetch("https://run.mocky.io/v3/2a5de4ff-bb60-4862-9e2c-9c80c1cdaed4")
+             // const response = await fetch("https://run.mocky.io/v3/2a5de4ff-bb60-4862-9e2c-9c80c1cdaed4")
+            const response = await fetch(`${api}lat=${lat}&lng=${lng}=today`);
             const json = await response.json();
 
             // Extract sunset time from the API response
