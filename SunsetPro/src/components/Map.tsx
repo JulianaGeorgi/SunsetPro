@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer} from 'react-leaflet';
-import { LocationMarker } from './LocationMarker';
-import {SearchField} from './SearchBar';
+import { LocationMarker } from './LocationMarker/LocationMarker';
+import {SearchField} from './SearchBar/SearchBar';
 // import { SearchBar } from './SearchBar';
 
 export const Map = () => {

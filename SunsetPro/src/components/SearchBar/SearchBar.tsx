@@ -14,7 +14,7 @@ export const SearchField = () => {
     provider: provider,
     searchLabel: "Enter a city...",
     showMarker: false,
-    style: "bar",
+    style: "button",
   });
 
   const map = useMap();
