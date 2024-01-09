@@ -1,4 +1,5 @@
 import { Footer } from "./Footer";
+import { ImageGallery } from "./ImageGallery";
 import { HeroSection } from "./HeroSection";
 import { Map } from "./Map";
 
@@ -7,6 +8,7 @@ export const Home = () => {
         <>
             <HeroSection />
             <Map />
+            <ImageGallery/>
             <Footer />
         </>
     )

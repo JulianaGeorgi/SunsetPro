@@ -8,6 +8,7 @@ module.exports = {
 
     fontSize: {
       sm: '0.8rem',
+      m: '0.9rem',
       base: '1rem',
       lg: '1.25rem',
       xl: '1.563rem',
@@ -25,14 +26,16 @@ module.exports = {
     },
 
     extend: {
+
       colors: {
-        "dark-green": "#386641",
+        "sunset": "gradient-to-r from-cyan-500 to-blue-500",
         "light-green": "#A7C957",
         "frog": "#afe1a1",
         "champagne": "#F2E8CF",
         "alice-blue": "#EDF6F9",
         "watermelon-red": "#BC4749",
         "font-dark": "#313030",
+
       },
 
       backgroundImage: {

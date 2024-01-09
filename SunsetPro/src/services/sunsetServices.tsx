@@ -1,10 +1,13 @@
+import { generateRandomNumber } from "../utils/utils";
+
 export const sunsetServices = () => {
 
-    const api = "https://api.sunrise-sunset.org/json?";
 
-    const getSunsetTime = async (lat:number, lng:number): Promise<string> => {
+
+    const getSunsetTime = async (lat: number, lng: number): Promise<string> => {
+        const api = "https://api.sunrise-sunset.org/json?";
         try {
-             // const response = await fetch("https://run.mocky.io/v3/2a5de4ff-bb60-4862-9e2c-9c80c1cdaed4")
+            // const response = await fetch("https://run.mocky.io/v3/2a5de4ff-bb60-4862-9e2c-9c80c1cdaed4")
             const response = await fetch(`${api}lat=${lat}&lng=${lng}=today`);
             const json = await response.json();
 
@@ -22,5 +25,13 @@ export const sunsetServices = () => {
         }
     };
 
-    return getSunsetTime
+    const getSunsetImage = (width: number, height: number) => {
+        const id = generateRandomNumber(1, 100);
+        return `https://picsum.photos/id/${id}/${width}/${height}`;
+    };
+
+    return {
+        getSunsetTime,
+        getSunsetImage,
+    }
 }
