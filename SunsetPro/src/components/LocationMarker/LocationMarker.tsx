@@ -13,6 +13,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export const LocationMarker = () => {
     // const [position, setPosition] = useState<{ lat: number; lng: number } | null>(null);
     const [sunsetTime, setSunsetTime] = useState<string | null>(null);
+
     const { getSunsetTime } = sunsetServices();
 
     // map custom marker icon of a sun
@@ -30,7 +31,7 @@ export const LocationMarker = () => {
 
     return (
         <MarkerClusterGroup chunkedLoading>
-            // setting all the predefined markers 
+            // setting all the predefined markers
             {extractedData.map((marker, index) => (
                 <Marker
                     key={index}
@@ -40,7 +41,7 @@ export const LocationMarker = () => {
                         click: (e: LeafletEvent) => onClickMarkerHandler(e, Number(marker.lat), Number(marker.lng)),
                     }}
                 >
-                    <Popup>
+                    {sunsetTime && <Popup>
                         <section className="bg-white dark:bg-gray-900">
                             <div className="grid gap-8 lg:grid-cols-1">
                                 <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -60,7 +61,7 @@ export const LocationMarker = () => {
                                             <span className="font-medium dark:text-white">Ana Coelho</span>
                                         </div>
                                         <Link
-                                            to="/"
+                                            to="/article"
                                             className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
                                         >
                                             Read more
@@ -74,6 +75,7 @@ export const LocationMarker = () => {
                             </div>
                         </section>
                     </Popup>
+                    }
                 </Marker>
             ))}
         </MarkerClusterGroup>
