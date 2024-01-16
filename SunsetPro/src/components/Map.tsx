@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer} from 'react-leaflet';
-import { LocationMarker } from './LocationMarker/LocationMarker';
+import { LocationMarker } from './LocationMarker/MarkerCluster';
 import {SearchField} from './SearchBar/SearchBar';
 // import { SearchBar } from './SearchBar';
 
