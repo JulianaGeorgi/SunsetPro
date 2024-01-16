@@ -4,10 +4,10 @@ export type City = {
     "lat": string;
     "lng": string;
     "imageUrl": string;
-    "country": string;
-    "iso2": string;
-    "admin_name": string;
-    "capital": string;
-    "population": string;
-    "population_proper": string;
+    "country"?: string;
+    "iso2"?: string;
+    "admin_name"?: string;
+    "capital"?: string;
+    "population"?: string;
+    "population_proper"?: string;
 }
