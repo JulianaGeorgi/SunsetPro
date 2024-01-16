@@ -3,6 +3,7 @@ export type City = {
     "city": string;
     "lat": string;
     "lng": string;
+    "imageUrl": string;
     "country": string;
     "iso2": string;
     "admin_name": string;

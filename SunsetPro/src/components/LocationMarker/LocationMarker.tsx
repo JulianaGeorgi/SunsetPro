@@ -41,7 +41,7 @@ export const LocationMarker = () => {
                         click: (e: LeafletEvent) => onClickMarkerHandler(e, Number(marker.lat), Number(marker.lng)),
                     }}
                 >
-                    {sunsetTime && <Popup>
+                    <Popup>
                         <section className="bg-white dark:bg-gray-900">
                             <div className="grid gap-8 lg:grid-cols-1">
                                 <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -75,7 +75,6 @@ export const LocationMarker = () => {
                             </div>
                         </section>
                     </Popup>
-                    }
                 </Marker>
             ))}
         </MarkerClusterGroup>
