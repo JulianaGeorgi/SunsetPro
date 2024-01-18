@@ -28,7 +28,9 @@ export const CustomLocationMarker = ({
                 click: () => onClick(position.lat, position.lng),
             }}
         >
-            <LocationPopup city={city} sunsetTime={sunsetTime} />
+            {sunsetTime &&
+                <LocationPopup city={city} sunsetTime={sunsetTime} />
+            }
         </Marker>
     );
 };

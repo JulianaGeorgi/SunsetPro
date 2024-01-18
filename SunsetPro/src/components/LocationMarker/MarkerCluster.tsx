@@ -40,9 +40,9 @@ export const LocationMarker = () => {
         <>
             <MarkerClusterGroup chunkedLoading>
             // setting all the predefined markers
-                {extractedData.map((marker, index) => (
+                {extractedData.map((marker) => (
                     <CustomLocationMarker
-                        key={index}
+                        key={marker.lat + marker.lng}
                         position={{ lat: Number(marker.lat), lng: Number(marker.lng) }}
                         icon={customIcon}
                         onClick={onClickMarkerHandler}

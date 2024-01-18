@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from "react";
 import { City } from "../types/City";
+import { useRef } from "react";
 
 interface MarkerProviderProps {
   children: ReactNode;
@@ -12,9 +13,9 @@ export function useMarkerContext() {
 }
 
 export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
-  // Your provider logic here
 
-  const [selectedImage, setSelectedImage] = useState<City | null >(null);
+  const [selectedImage, setSelectedImage] = useState<City | null>(null);
+  const ref = useRef(null);
 
   function updateSelectedImage(imageData: City) {
     setSelectedImage(imageData);
@@ -22,7 +23,8 @@ export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
 
   const value = {
     selectedImage,
-    updateSelectedImage
+    updateSelectedImage,
+    ref
   };
 
   return (
