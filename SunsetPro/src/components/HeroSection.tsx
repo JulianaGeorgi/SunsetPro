@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useMarkerContext } from "../contexts/markerContext";
 
 export const HeroSection = () => {
+
+    const {ref} = useMarkerContext();
+
+    function onBrowseLocationsClick() {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    }
     return (
             <div className='' >
                 <section className="bg-white dark:bg-gray-900">
@@ -29,11 +36,12 @@ export const HeroSection = () => {
                                     />
                                 </svg>
                             </Link>
-                            <Link to="#"
+                            <button 
                                 className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                                onClick={onBrowseLocationsClick}
                             >
                                 Browse locations
-                            </Link>
+                            </button>
                         </div>
                         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                             <img

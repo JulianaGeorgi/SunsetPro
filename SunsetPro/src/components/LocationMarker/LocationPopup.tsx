@@ -108,10 +108,6 @@ export const LocationPopup = ({
                     </div>
                 </section>
             }
-
         </Popup>
-
-
-
     )
 }

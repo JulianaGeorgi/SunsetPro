@@ -31,10 +31,11 @@ export const ImageGallery = () => {
   }
 
   return (
-    <section className=" m-4 px-4">
-      <div className="py-8">
-        <h2 className="mb-4 text-4xl text-center font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Sunset Collection</h2>
-        <p className="text-sm text-gray-500 text-center">Click on an image to discover the exact Sunset Spot on the map</p>
+    <section className="m-4 px-4">
+      <div className="flex flex-col justify-center items-center py-8">
+        <h2 className="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Sunset Collection</h2>
+        <p className="text-sm text-gray-500">Click on an image to discover the exact Sunset Spot on the map</p>
+        <img src="https://cdn-icons-png.flaticon.com/512/7162/7162383.png" className="rotate-180 h-7 w-7 m-2"></img>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -44,6 +45,7 @@ export const ImageGallery = () => {
               className="zoom h-48 w-72 object-cover rounded-lg hover:scale-110 cursor-pointer"
               src={data.imageUrl}
               alt={`Image ${index + 1}`}
+              title={data.city}
               onClick={() => onImageClickHandler(data)}
             />
           </div>
