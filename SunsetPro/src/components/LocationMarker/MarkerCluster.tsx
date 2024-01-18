@@ -15,26 +15,36 @@ export const LocationMarker = () => {
     const [sunsetTime, setSunsetTime] = useState<string | null>(null);
 
     const { getSunsetTime } = sunsetServices();
-    const { selectedImage } = useMarkerContext();
+    const { selectedImage, updateLoader, isLoading } = useMarkerContext();
 
-    // map custom marker icon of a sun
+    // Map custom marker icon of a sun
     const customIcon = new Icon({
         iconUrl: "https://www.iconpacks.net/icons/2/free-sun-icon-1845-thumb.png",
         iconSize: [38, 38]
     });
 
-    // map custom marker icon when an user clicks on an image from the gallery
+    // Map custom marker icon when an user clicks on an image from the gallery
     const selectedImageIcon = new Icon({
         iconUrl: "https://icon-library.com/images/google-maps-you-are-here-icon/google-maps-you-are-here-icon-25.jpg",
         iconSize: [50, 65]
     });
 
     const onClickMarkerHandler = async (lat: number, lng: number) => {
-        getSunsetTime(lat, lng)
-            .then((sunsetTime) => {
-                setSunsetTime(sunsetTime);
-            });
-    };
+        // Set isLoading to true when starting the data fetch
+        updateLoader();
+    
+        try {
+          const sunsetData = await getSunsetTime(lat, lng);
+          setSunsetTime(sunsetData);
+          
+        } catch (error) {
+          console.error('Error fetching sunset time:', error);
+        } finally {
+          // Set isLoading to false when data fetch completed
+          updateLoader();
+        }
+      };
+    
 
     return (
         <>

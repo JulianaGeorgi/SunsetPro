@@ -15,15 +15,24 @@ export function useMarkerContext() {
 export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
 
   const [selectedImage, setSelectedImage] = useState<City | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const ref = useRef(null);
 
   function updateSelectedImage(imageData: City) {
     setSelectedImage(imageData);
   }
 
+  function updateLoader() {
+    console.log("Loader will be updated...")
+    setIsLoading(prevLoading => !prevLoading);
+  }
+
   const value = {
     selectedImage,
     updateSelectedImage,
+    isLoading,
+    updateLoader,
     ref
   };
 

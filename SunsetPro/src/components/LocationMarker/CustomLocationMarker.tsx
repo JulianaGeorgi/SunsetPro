@@ -3,6 +3,7 @@ import { LocationPopup } from './LocationPopup';
 import { DivIcon, Icon, IconOptions } from 'leaflet';
 
 
+
 //TODO: fix position any type
 export const CustomLocationMarker = ({
     position,
@@ -19,6 +20,7 @@ export const CustomLocationMarker = ({
     sunsetTime: string | null;
     city: string;
 }) => {
+
     return (
         <Marker
             position={position}
@@ -28,9 +30,7 @@ export const CustomLocationMarker = ({
                 click: () => onClick(position.lat, position.lng),
             }}
         >
-            {sunsetTime &&
-                <LocationPopup city={city} sunsetTime={sunsetTime} />
-            }
+            <LocationPopup city={city} sunsetTime={sunsetTime} />
         </Marker>
     );
 };
