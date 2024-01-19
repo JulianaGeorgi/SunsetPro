@@ -14,7 +14,6 @@ export const LocationPopup = ({
 
     const { isLoading } = useMarkerContext();
     return (
-
         <Popup>
             {isLoading
                 ?

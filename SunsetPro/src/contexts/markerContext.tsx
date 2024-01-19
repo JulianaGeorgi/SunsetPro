@@ -24,7 +24,6 @@ export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
   }
 
   function updateLoader() {
-    console.log("Loader will be updated...")
     setIsLoading(prevLoading => !prevLoading);
   }
 

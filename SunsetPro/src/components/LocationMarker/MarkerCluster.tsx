@@ -4,10 +4,12 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon } from "leaflet";
 
 import { sunsetServices } from "../../services/sunsetServices";
+// import { articleServices } from "../../services/articleServices";
 import { extractedData } from "../../utils/utils";
 import { useMarkerContext } from "../../contexts/markerContext";
 
 import { CustomLocationMarker } from "./CustomLocationMarker";
+
 
 
 export const LocationMarker = () => {
@@ -15,7 +17,7 @@ export const LocationMarker = () => {
     const [sunsetTime, setSunsetTime] = useState<string | null>(null);
 
     const { getSunsetTime } = sunsetServices();
-    const { selectedImage, updateLoader, isLoading } = useMarkerContext();
+    const { selectedImage, updateLoader } = useMarkerContext();
 
     // Map custom marker icon of a sun
     const customIcon = new Icon({

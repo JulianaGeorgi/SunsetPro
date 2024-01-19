@@ -2,8 +2,6 @@ import { generateRandomNumber } from "../utils/utils";
 
 export const sunsetServices = () => {
 
-
-
     const getSunsetTime = async (lat: number, lng: number): Promise<string> => {
         const api = "https://api.sunrise-sunset.org/json?";
         try {
