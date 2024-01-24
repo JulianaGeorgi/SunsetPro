@@ -1,6 +1,10 @@
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import { createContext, useState, useContext, ReactNode, useRef } from "react";
+
 import { City } from "../types/City";
-import { useRef } from "react";
+import { MapPosition } from "../types/MapPosition";
+
+import { mapDefaultPosition } from "../utils/constants";
+
 
 interface MarkerProviderProps {
   children: ReactNode;
@@ -15,9 +19,18 @@ export function useMarkerContext() {
 export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
 
   const [selectedImage, setSelectedImage] = useState<City | null>(null);
+  const [currentMapPosition, setCurrentMapPosition] = useState<MapPosition>(mapDefaultPosition);
   const [isLoading, setIsLoading] = useState(false);
 
   const ref = useRef(null);
+
+  function updateMapView(lat: number, lng: number) {
+    setCurrentMapPosition({
+      ...currentMapPosition,
+      coordinates: [lat, lng],
+      zoom: 8
+    });
+  }
 
   function updateSelectedImage(imageData: City) {
     setSelectedImage(imageData);
@@ -28,6 +41,8 @@ export const MarkerProvider: React.FC<MarkerProviderProps> = ({ children }) => {
   }
 
   const value = {
+    currentMapPosition,
+    updateMapView,
     selectedImage,
     updateSelectedImage,
     isLoading,

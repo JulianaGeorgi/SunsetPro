@@ -5,11 +5,10 @@ import { Icon } from "leaflet";
 
 import { sunsetServices } from "../../services/sunsetServices";
 // import { articleServices } from "../../services/articleServices";
-import { extractedData } from "../../utils/utils";
+import { extractedData as citiesData } from "../../utils/utils";
 import { useMarkerContext } from "../../contexts/markerContext";
 
 import { CustomLocationMarker } from "./CustomLocationMarker";
-
 
 
 export const LocationMarker = () => {
@@ -17,7 +16,7 @@ export const LocationMarker = () => {
     const [sunsetTime, setSunsetTime] = useState<string | null>(null);
 
     const { getSunsetTime } = sunsetServices();
-    const { selectedImage, updateLoader } = useMarkerContext();
+    const { selectedImage, updateLoader, updateMapView, currentMapPosition } = useMarkerContext();
 
     // Map custom marker icon of a sun
     const customIcon = new Icon({
@@ -34,6 +33,7 @@ export const LocationMarker = () => {
     const onClickMarkerHandler = async (lat: number, lng: number) => {
         // Set isLoading to true when starting the data fetch
         updateLoader();
+        // updateMapView(lat, lng);
     
         try {
           const sunsetData = await getSunsetTime(lat, lng);
@@ -52,7 +52,7 @@ export const LocationMarker = () => {
         <>
             <MarkerClusterGroup chunkedLoading>
             // setting all the predefined markers
-                {extractedData.map((marker) => (
+                {citiesData.map((marker) => (
                     <CustomLocationMarker
                         key={marker.lat + marker.lng}
                         position={{ lat: Number(marker.lat), lng: Number(marker.lng) }}

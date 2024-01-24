@@ -3,6 +3,7 @@ import { Popup } from "react-leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useMarkerContext } from '../../contexts/markerContext';
+import { articleServices } from "../../services/articleServices";
 
 export const LocationPopup = ({
     sunsetTime,
@@ -13,6 +14,11 @@ export const LocationPopup = ({
 }) => {
 
     const { isLoading } = useMarkerContext();
+  
+
+
+
+
     return (
         <Popup>
             {isLoading
@@ -93,7 +99,7 @@ export const LocationPopup = ({
                                     <span className="font-medium dark:text-white">Ana Coelho</span>
                                 </div>
                                 <Link
-                                    to="/article"
+                                    to={`/article/`}
                                     className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
                                 >
                                     Read more

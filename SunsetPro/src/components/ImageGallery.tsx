@@ -7,6 +7,7 @@ export const ImageGallery = () => {
 
   const {
     updateSelectedImage,
+    updateMapView,
     ref
   } = useMarkerContext();
 
@@ -27,7 +28,10 @@ export const ImageGallery = () => {
   function onImageClickHandler(imageData: City) {
     // ref for scrolling to map when an image from the gallery is clicked
     ref.current?.scrollIntoView({ behavior: 'smooth' });
+
     updateSelectedImage(imageData);
+    
+    updateMapView(Number(imageData.lat), Number(imageData.lng));
   }
 
   return (

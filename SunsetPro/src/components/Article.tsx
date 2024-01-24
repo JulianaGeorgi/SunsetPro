@@ -1,6 +1,11 @@
 import 'flowbite-typography/dist/typography.css';
+import { articleServices } from '../services/articleServices';
 
 export const Article = () => {
+
+    const {fetchArticleById, publishArticle} = articleServices();
+
+    publishArticle();
     return (
         <>
             <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
